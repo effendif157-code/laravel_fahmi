@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mycontroller;
-
+use App\Http\Controllers\Postcontroller;
 
 
 
@@ -39,9 +39,9 @@ Route::get('books/{judul}',function($a){
     return 'Judul Buku: '.$a;
 }); 
 
-Route::get('post/{title}/{category}',function($a,$b){
-    return view('post',['judul'=>$a, 'cat'=>$b]);
-});
+// Route::get('post/{title}/{category}',function($a,$b){
+//     return view('post',['judul'=>$a, 'cat'=>$b]);
+// });
 
 Route::get('profile/{nama?}',function($a = "guest"){
     return "Halo nama saya ".$a;
@@ -120,9 +120,18 @@ Route::get('search/{cari}', function($query){
 Route::get('greeting',[Mycontroller::class, 'hello']);
 Route::get('student',[Mycontroller::class, 'siswa']);
 
-use App\Http\Controllers\Postcontroller;
-Route::get('post', [Postcontroller::class, 'index']);
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('post', [Postcontroller::class, 'index'])->name('post.index');
+
+Route::get('post/create', [Postcontroller::class, 'create'])->name('post.create');
+Route::post('post', [Postcontroller::class, 'store'])->name('post.store');
+
+Route::get('post/{id}/rdit', [Postcontroller::class, 'edit'])->name('post.edit');
+Route::put('post/{id}', [Postcontroller::class, 'update'])->name('post.update');
+Route::put('post/{id}', [Postcontroller::class, 'update'])->name('post.update');
+Route::delete('post/{id}', [Postcontroller::class, 'destroy'])->name('post.delete');

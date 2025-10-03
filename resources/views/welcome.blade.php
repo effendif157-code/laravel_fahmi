@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Selamat Datang Fahmii!!
+                    Selamat Datang Di Web App Laravel
                 </div>
             </div>
         </div>

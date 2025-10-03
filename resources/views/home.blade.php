@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    selamaat andaa berhasiil loggiin/register
                 </div>
             </div>
         </div>
