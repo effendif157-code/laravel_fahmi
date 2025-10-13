@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mycontroller;
 use App\Http\Controllers\Postcontroller;
+use App\Http\Controllers\BiodataController;
+
 
 
 
@@ -131,7 +133,17 @@ Route::get('post', [Postcontroller::class, 'index'])->name('post.index');
 Route::get('post/create', [Postcontroller::class, 'create'])->name('post.create');
 Route::post('post', [Postcontroller::class, 'store'])->name('post.store');
 
-Route::get('post/{id}/rdit', [Postcontroller::class, 'edit'])->name('post.edit');
+Route::get('post/{id}/edit', [Postcontroller::class, 'edit'])->name('post.edit');
 Route::put('post/{id}', [Postcontroller::class, 'update'])->name('post.update');
 Route::put('post/{id}', [Postcontroller::class, 'update'])->name('post.update');
+Route::get('post/{id}', [Postcontroller::class, 'show'])->name('post.show');
+
 Route::delete('post/{id}', [Postcontroller::class, 'destroy'])->name('post.delete');
+
+
+Route::resource('produk', App\Http\Controllers\ProdukController::class)->middleware('auth');
+
+
+
+Route::resource('biodata', BiodataController::class);
+
