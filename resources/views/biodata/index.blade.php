@@ -1,23 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h2>Data Biodata</h2>
+    <h1>Data Biotada</h1>
+    <a href="{{ route('biotada.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
 
-    @if (session('pesan'))
-    <div style="color: green; margin-bottom: 10px;">
-        {{ session('pesan') }}
-    </div>
-    @endif
-
-    <a href="{{ route('biodata.create') }}">+ Tambah Data</a>
-
-    <table border="1" cellpadding="8" cellspacing="0" style="margin-top: 10px; width:100%;">
+    <table class="table table-bordered">
         <thead>
             <tr>
+                <th>No</th>
                 <th>Nama</th>
-                <th>Jenis Kelamin</th>
+                <th>Tgl Lahir</th>
+                <th>JK</th>
                 <th>Agama</th>
+                <th>Alamat</th>
                 <th>Tinggi</th>
                 <th>Berat</th>
                 <th>Foto</th>
@@ -25,29 +20,35 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data as $item)
-            <tr>
-                <td>{{ $item->nama }}</td>
-                <td>{{ $item->jk }}</td>
-                <td>{{ $item->agama }}</td>
-                <td>{{ $item->tinggi_badan }} cm</td>
-                <td>{{ $item->berat_badan }} kg</td>
-                <td>
-                    @if($item->foto)
-                    <img src="{{ asset('storage/'.$item->foto) }}" alt="foto" width="60">
-                    @endif
-                </td>
-                <td>
-                    <a href="{{ route('biodata.edit', $item->id) }}">Edit</a>
-                    <form action="{{ route('biodata.destroy', $item->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('Yakin hapus data ini?')">Hapus</button>
-                    </form>
-                </td>
-            </tr>
+            @foreach ($biotadas as $item)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->nama }}</td>
+                    <td>{{ $item->tgl_lahir }}</td>
+                    <td>{{ $item->jk }}</td>
+                    <td>{{ $item->agama }}</td>
+                    <td>{{ $item->alamat }}</td>
+                    <td>{{ $item->tinggi_badan }}</td>
+                    <td>{{ $item->berat_badan }}</td>
+                    <td>
+                        @if ($item->foto)
+                            <img src="{{ asset('uploads/biotada_fotos/' . $item->foto) }}" width="80" />
+                        @else
+                            (no foto)
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('biotada.show', $item->id) }}" class="btn btn-info btn-sm">Lihat</a>
+                        <a href="{{ route('biotada.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{{ route('biotada.destroy', $item->id) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm"
+                              onclick="return confirm('Yakin ingin hapus?')">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
             @endforeach
         </tbody>
     </table>
-</div>
 @endsection

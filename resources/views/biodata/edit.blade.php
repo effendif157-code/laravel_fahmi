@@ -1,46 +1,65 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h2>Edit Biodata</h2>
-
-    <form action="{{ route('biodata.update', $biodata->id) }}" method="POST" enctype="multipart/form-data">
+    <h1>Edit Biotada</h1>
+    <form action="{{ route('biotada.update', $biotada->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
-        <label>Nama:</label><br>
-        <input type="text" name="nama" value="{{ old('nama', $biodata->nama) }}"><br><br>
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" name="nama" class="form-control" value="{{ old('nama', $biotada->nama) }}" required>
+        </div>
 
-        <label>Tanggal Lahir:</label><br>
-        <input type="date" name="tgl_lahir" value="{{ old('tgl_lahir', $biodata->tgl_lahir) }}"><br><br>
+        <div class="mb-3">
+            <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
+            <input type="date" name="tgl_lahir" class="form-control" value="{{ old('tgl_lahir', $biotada->tgl_lahir) }}" required>
+        </div>
 
-        <label>Jenis Kelamin:</label><br>
-        <input type="radio" name="jk" value="Laki-laki" {{ $biodata->jk == 'Laki-laki' ? 'checked' : '' }}> Laki-laki
-        <input type="radio" name="jk" value="Perempuan" {{ $biodata->jk == 'Perempuan' ? 'checked' : '' }}> Perempuan<br><br>
+        <div class="mb-3">
+            <label class="form-label">Jenis Kelamin</label><br>
+            <input type="radio" name="jk" value="L" {{ old('jk', $biotada->jk) == 'L' ? 'checked' : '' }}> Laki‑laki
+            <input type="radio" name="jk" value="P" {{ old('jk', $biotada->jk) == 'P' ? 'checked' : '' }}> Perempuan
+        </div>
 
-        <label>Agama:</label><br>
-        <select name="agama">
-            @foreach (['Islam','Kristen','Katolik','Hindu','Buddha','Konghucu'] as $agm)
-            <option value="{{ $agm }}" {{ $biodata->agama == $agm ? 'selected' : '' }}>{{ $agm }}</option>
-            @endforeach
-        </select><br><br>
+        <div class="mb-3">
+            <label for="agama" class="form-label">Agama</label>
+            <select name="agama" class="form-control" required>
+                <option value="">-- Pilih Agama --</option>
+                <option value="Islam" {{ old('agama', $biotada->agama) == 'Islam' ? 'selected' : '' }}>Islam</option>
+                <option value="Kristen" {{ old('agama', $biotada->agama) == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                <option value="Katolik" {{ old('agama', $biotada->agama) == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                <option value="Hindu" {{ old('agama', $biotada->agama) == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                <option value="Budha" {{ old('agama', $biotada->agama) == 'Budha' ? 'selected' : '' }}>Budha</option>
+                <option value="Konghucu" {{ old('agama', $biotada->agama) == 'Konghucu' ? 'selected' : '' }}>Konghucu</option>
+            </select>
+        </div>
 
-        <label>Alamat:</label><br>
-        <textarea name="alamat" rows="3">{{ old('alamat', $biodata->alamat) }}</textarea><br><br>
+        <div class="mb-3">
+            <label for="alamat" class="form-label">Alamat</label>
+            <textarea name="alamat" class="form-control" rows="3" required>{{ old('alamat', $biotada->alamat) }}</textarea>
+        </div>
 
-        <label>Tinggi Badan (cm):</label><br>
-        <input type="number" name="tinggi_badan" value="{{ old('tinggi_badan', $biodata->tinggi_badan) }}"><br><br>
+        <div class="mb-3">
+            <label for="tinggi_badan" class="form-label">Tinggi Badan (cm)</label>
+            <input type="number" name="tinggi_badan" class="form-control" value="{{ old('tinggi_badan', $biotada->tinggi_badan) }}" required>
+        </div>
 
-        <label>Berat Badan (kg):</label><br>
-        <input type="number" name="berat_badan" value="{{ old('berat_badan', $biodata->berat_badan) }}"><br><br>
+        <div class="mb-3">
+            <label for="berat_badan" class="form-label">Berat Badan (kg)</label>
+            <input type="number" name="berat_badan" class="form-control" value="{{ old('berat_badan', $biotada->berat_badan) }}" required>
+        </div>
 
-        <label>Foto:</label><br>
-        @if ($biodata->foto)
-        <img src="{{ asset('storage/'.$biodata->foto) }}" alt="foto" width="80"><br>
-        @endif
-        <input type="file" name="foto"><br><br>
+        <div class="mb-3">
+            <label for="foto" class="form-label">Foto</label>
+            <input type="file" name="foto" class="form-control">
+            @if ($biotada->foto)
+                <br>
+                <img src="{{ asset('uploads/biotada_fotos/' . $biotada->foto) }}" width="120" />
+            @endif
+        </div>
 
-        <button type="submit">Update</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{ route('biotada.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
-</div>
 @endsection

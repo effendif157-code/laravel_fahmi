@@ -1,46 +1,60 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h2>Tambah Biodata</h2>
-
-    <form action="{{ route('biodata.store') }}" method="POST" enctype="multipart/form-data">
+    <h1>Tambah Biotada</h1>
+    <form action="{{ route('biotada.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <label>Nama:</label><br>
-        <input type="text" name="nama" value="{{ old('nama') }}"><br><br>
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" name="nama" class="form-control" value="{{ old('nama') }}" required>
+        </div>
 
-        <label>Tanggal Lahir:</label><br>
-        <input type="date" name="tgl_lahir" value="{{ old('tgl_lahir') }}"><br><br>
+        <div class="mb-3">
+            <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
+            <input type="date" name="tgl_lahir" class="form-control" value="{{ old('tgl_lahir') }}" required>
+        </div>
 
-        <label>Jenis Kelamin:</label><br>
-        <input type="radio" name="jk" value="Laki-laki"> Laki-laki
-        <input type="radio" name="jk" value="Perempuan"> Perempuan<br><br>
+        <div class="mb-3">
+            <label class="form-label">Jenis Kelamin</label><br>
+            <input type="radio" name="jk" value="L" {{ old('jk') == 'L' ? 'checked' : '' }}> Laki‑laki
+            <input type="radio" name="jk" value="P" {{ old('jk') == 'P' ? 'checked' : '' }}> Perempuan
+        </div>
 
-        <label>Agama:</label><br>
-        <select name="agama">
-            <option value="">-- Pilih Agama --</option>
-            <option value="Islam">Islam</option>
-            <option value="Kristen">Kristen</option>
-            <option value="Katolik">Katolik</option>
-            <option value="Hindu">Hindu</option>
-            <option value="Buddha">Buddha</option>
-            <option value="Konghucu">Konghucu</option>
-        </select><br><br>
+        <div class="mb-3">
+            <label for="agama" class="form-label">Agama</label>
+            <select name="agama" class="form-control" required>
+                <option value="">-- Pilih Agama --</option>
+                <option value="Islam" {{ old('agama') == 'Islam' ? 'selected' : '' }}>Islam</option>
+                <option value="Kristen" {{ old('agama') == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                <option value="Katolik" {{ old('agama') == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                <option value="Hindu" {{ old('agama') == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                <option value="Budha" {{ old('agama') == 'Budha' ? 'selected' : '' }}>Budha</option>
+                <option value="Konghucu" {{ old('agama') == 'Konghucu' ? 'selected' : '' }}>Konghucu</option>
+            </select>
+        </div>
 
-        <label>Alamat:</label><br>
-        <textarea name="alamat" rows="3">{{ old('alamat') }}</textarea><br><br>
+        <div class="mb-3">
+            <label for="alamat" class="form-label">Alamat</label>
+            <textarea name="alamat" class="form-control" rows="3" required>{{ old('alamat') }}</textarea>
+        </div>
 
-        <label>Tinggi Badan (cm):</label><br>
-        <input type="number" name="tinggi_badan" value="{{ old('tinggi_badan') }}"><br><br>
+        <div class="mb-3">
+            <label for="tinggi_badan" class="form-label">Tinggi Badan (cm)</label>
+            <input type="number" name="tinggi_badan" class="form-control" value="{{ old('tinggi_badan') }}" required>
+        </div>
 
-        <label>Berat Badan (kg):</label><br>
-        <input type="number" name="berat_badan" value="{{ old('berat_badan') }}"><br><br>
+        <div class="mb-3">
+            <label for="berat_badan" class="form-label">Berat Badan (kg)</label>
+            <input type="number" name="berat_badan" class="form-control" value="{{ old('berat_badan') }}" required>
+        </div>
 
-        <label>Foto:</label><br>
-        <input type="file" name="foto"><br><br>
+        <div class="mb-3">
+            <label for="foto" class="form-label">Foto</label>
+            <input type="file" name="foto" class="form-control">
+        </div>
 
-        <button type="submit">Simpan</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        <a href="{{ route('biotada.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
-</div>
 @endsection
