@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Biotada;
+use App\Models\Biotadas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 

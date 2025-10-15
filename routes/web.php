@@ -153,3 +153,10 @@ Route::get('/one-to-one', [RelasiController::class, 'oneToOne']);
 Route::get('/one-to-many', [RelasiController::class, 'oneToMany']);
 Route::get('/many-to-many', [RelasiController::class, 'manyToMany']);
 Route::get('eloquent', [RelasiController::class, 'eloquent']);
+
+
+use App\Http\Controllers\DosenController;
+Route::resource('dosen', DosenController::class);
+
+use App\Http\Controllers\HobiController;
+Route::resource('hobi', HobiController::class);

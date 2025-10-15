@@ -12,7 +12,7 @@
                     <small class="text-muted">({{ $temp->nim }})</small>
                 </h3>
 
-                <h5>Hobi:</h5>
+                <h5>Hobi:</h5
                 <ul>
                     @forelse ($temp->hobis as $tampung)
                         <li> {{ $tampung->nama_hobi }} </li>
