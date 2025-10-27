@@ -160,3 +160,7 @@ Route::resource('dosen', DosenController::class);
 
 use App\Http\Controllers\HobiController;
 Route::resource('hobi', HobiController::class);
+
+Route::resource('mahasiswa', App\Http\COntrollers\mahasiswaController::class);
+
+Route::resource('wali', App\Http\Controllers\WaliController::class);
