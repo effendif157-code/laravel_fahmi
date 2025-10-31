@@ -64,7 +64,7 @@
                     <use xlink:href="#bootstrap"></use>
                 </svg>
             </a>
-            <span class="text-muted">Arya Adhitya XI RPL 3 </span>
+            <span class="text-muted">Fahmi XI RPL 3 </span>
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

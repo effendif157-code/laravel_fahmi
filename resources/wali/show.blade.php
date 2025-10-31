@@ -6,8 +6,7 @@
         <div class="col-md-8">
             <div class="card shadow-sm">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    Ini Diaa!!!
-                    <a href="{{ route('wali.index') }}" class="btn btn-sm btn-outline-primary">Kembali</a>
+                    <a href="{{ route('wali.indexx') }}" class="btn btn-sm btn-outline-primary">Kembali</a>
                 </div>
 
                 <div class="card-body">
@@ -29,7 +28,7 @@
                     <use xlink:href="#bootstrap"></use>
                 </svg>
             </a>
-            <span class="text-muted">Arya Adhitya XI RPL 3 </span>
+            <span class="text-muted">Fahmi XI RPL 3 </span>
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

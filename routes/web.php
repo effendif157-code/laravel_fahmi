@@ -164,3 +164,6 @@ Route::resource('hobi', HobiController::class);
 Route::resource('mahasiswa', App\Http\COntrollers\mahasiswaController::class);
 
 Route::resource('wali', App\Http\Controllers\WaliController::class);
+
+Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
+
