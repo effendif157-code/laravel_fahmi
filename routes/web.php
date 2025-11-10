@@ -166,4 +166,6 @@ Route::resource('mahasiswa', App\Http\COntrollers\mahasiswaController::class);
 Route::resource('wali', App\Http\Controllers\WaliController::class);
 
 Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
+Route::resource('produk', App\Http\Controllers\ProdukController::class);
+Route::resource('transaksi', App\Http\Controllers\TransaksiController::class);
 

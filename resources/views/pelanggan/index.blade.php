@@ -8,7 +8,7 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <a href="{{ route('pelanggan.create') }}" class="btn btn-primary mb-3">+ Tambah Pelanggan</a>
+    <a href="{{ route('pelanggan.create') }}" class="btn btn-success mb-3">+ Tambah Pelanggan</a>
 
     <table class="table table-bordered">
         <thead>
@@ -28,8 +28,8 @@
                     <td>{{ $p->alamat }}</td>
                     <td>{{ $p->no_hp }}</td>
                     <td>
-                        <a href="{{ route('pelanggan.show', $p->id) }}" class="btn btn-warning btn-sm">Show</a> |
-                        <a href="{{ route('pelanggan.edit', $p->id) }}" class="btn btn-primary btn-sm">Edit</a> |
+                        <a href="{{ route('pelanggan.show', $p->id) }}" class="btn btn-warning btn-sm">Show</a> 
+                        <a href="{{ route('pelanggan.edit', $p->id) }}" class="btn btn-primary btn-sm">Edit</a> 
                         <form action="{{ route('pelanggan.destroy', $p->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
