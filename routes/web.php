@@ -165,7 +165,11 @@ Route::resource('mahasiswa', App\Http\COntrollers\mahasiswaController::class);
 
 Route::resource('wali', App\Http\Controllers\WaliController::class);
 
+
+use App\Http\Controllers\TransaksiController;
+Route::get('/transaksi/search', [App\Http\Controllers\TransaksiController::class, 'search'])->name('transaksi.search');
 Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
 Route::resource('produk', App\Http\Controllers\ProdukController::class);
+Route::resource('pembayaran', App\Http\Controllers\PembayaranController::class);
 Route::resource('transaksi', App\Http\Controllers\TransaksiController::class);
 

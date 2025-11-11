@@ -10,7 +10,7 @@
 
     <a href="{{ route('pelanggan.create') }}" class="btn btn-success mb-3">+ Tambah Pelanggan</a>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered text-center ">
         <thead>
             <tr>
                 <th>No</th>

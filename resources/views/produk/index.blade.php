@@ -15,8 +15,8 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
+                    <div class="table-responsive text-center">
+                        <table class="table" >
                             <thead>
                                 <tr>
                                     <th>No</th>
